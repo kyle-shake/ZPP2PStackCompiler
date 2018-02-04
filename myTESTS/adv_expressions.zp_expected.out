@@ -1,0 +1,27 @@
+     5 
+     5 
+Test Equivalency expression passed!
+     5 
+     5 
+Test Greater Than expression passed!
+    15 
+     5 
+Test Greater Than or Equal To expression passed!
+    15 
+    15 
+Test Less Than or Equal To expression passed!
+     1 
+    15 
+Test Less Than or Equal To expression passed!
+     3 
+    15 
+Test Less Than or Equal To expression passed!
+     7 
+    15 
+Test Less Than or Equal To expression passed!
+    15 
+    15 
+Test And Expression passed!
+Test Or Expression passed!
+Test Not Expression with Equivalency passed!
+Test Not Expression with Greater than passed!

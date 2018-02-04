@@ -1,0 +1,18 @@
+//simple-ifthen.zp
+//Input: none
+//Output: 2017
+
+int main()
+{
+    int sum;
+    int i;
+    sum = 2016;
+    i = 1;
+    if (i < 2)
+    then {
+        sum = sum + 1;
+    }
+
+    putn(sum);
+    return 0;
+}

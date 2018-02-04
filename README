@@ -1,0 +1,290 @@
+###########################
+
+Z-PLUS TO P-STACK COMPILER
+
+############################
+
+Author: Kyle Shake with special consideration to Dr. Jerzy Jaromcyzk
+
+Last Modified: 12/13/2017
+
+Version: v1.2
+
+--------------------------------------------------------------------------------
+
+About:
+
+--------------------------------------------------------------------------------
+
+This compiler takes a program file written in Z-Plus language (a C++ derivative)
+and converts the file to P-Stack Language through the use of the BNF Converter
+(BNFC). The BNFC uses the included zp.cf grammar to create a Flex file, a 
+Bison file, and other C++ program files.
+
+The included P-Stack Machine can execute the newly created APM file to verify 
+the accuracy of the compiler
+
+--------------------------------------------------------------------------------
+
+Creation:
+
+--------------------------------------------------------------------------------
+Use setup script:
+
+>> ./setup.sh
+
+***OR***
+
+First Step - Create Program Files associated with BNFC:
+
+>> bnfc -m -cpp zp.cf
+
+Second Step - Create Syntax-Directed Lexical Analyzer (Testzp):
+
+>> make
+
+Third Step - Create compiler and PStack Machine
+
+>> make -f Makefile.codegen
+
+
+--------------------------------------------------------------------------------
+
+Usage:
+
+--------------------------------------------------------------------------------
+
+Compile file.zp to produce file.apm:
+
+>> ./compiler2017 file.zp file.apm
+
+Execute file.apm:
+
+>> ./pstack/api file.apm
+
+
+--------------------------------------------------------------------------------
+
+Grammar Details:
+
+--------------------------------------------------------------------------------
+
+Current Version Supports The Following:
+
+####Expression (syntax)			: description
+
+    Declaration Assignment (int x = 1;)	: Expressions where an identifier is
+					  declared with type and assigned a
+					  particular value
+
+    Assignment (x = 1;)			: Assignment expressions where an 
+					  identifier is assigned a particular
+					  value
+	  		****CURRENTLY ONLY INTEGER ASSIGNMENT IS SUPPORTED****
+
+    Arithmetic (x +|-|*|/ y)		: Arithmetical expressions (addition, 
+					  subtraction, multiplication & division)
+
+    Modulo (x % y)			: An expression that returns the 
+					  remainder of a division operation
+
+    Less Than (x < y)			: Boolean expression that returns true 
+					  if the first literal is less than the 
+					  second
+
+    Less-Than-Equal-To (x <= y) 	: Boolean expression that returns true 
+					  if the first literal is less than or 
+					  equal to the second
+
+    Greater-Than (x > y)		: Boolean expression that returns true 
+					  if the first literal is greater than 
+					  the second
+
+    Greater-Than-Equal-To (x >= y)	: Boolean expression that returns true 
+					  if the first literal is greater than 
+					  or equal to the second	
+
+    And ( exp && exp)			: Boolean expression that returns true 
+					  if both expressions are true 
+
+    Or (exp || exp)			: Boolean expression that returns true 
+					  if one of the two expressions are true
+
+    Not ( !(exp) )			: Boolean expression that returns true 
+					  if the expression is false
+   
+####Variable Types (syntax)		: description
+
+    Integer (int)			: Variables that are of integer type
+ 
+####General Statements (syntax)		: description
+
+    Declaration (int x;)		: Statements where a variable and its type 
+					  is declared
+
+    Return ( return(0);)		: Statements where a function returns a
+					   value
+
+####Conditional Statements (syntax)	: description
+
+    If ( if(bool){ Statement } )	: Statements that only execute if the 
+					  boolean expression is true
+
+    If-then-else( if(bool)then{Statement} else {Statement} )
+					: If statements that include an else
+					  block in case of a failed boolean 
+					  check
+
+
+####Loop Statements (syntax)		: description
+
+    While ( while(bool){ Statement } )	: Statements that repeatedly run a block 
+					  statement until the boolean expression 
+					  fails
+
+    For ( for(bool){Statement} ) 	: Statements that repeatedly run a block 
+					  statement that includes altering the 
+					  variable in the boolean expression 
+					  until that boolean expression fails
+
+    Repeat-until( repeat{ Statement }until(bool) )
+					: Repeat-until statements that execute a
+					  block of code at least once and repeat
+					  execution until a boolean check is
+					  found true
+
+    for ( for(exp; exp; exp){Statement} )
+					: For loops that declare their own
+ 					  variables and include an iterator
+					  local to the loop
+
+ 
+####Input/Output			: description
+
+    get_num(num)			: retrieves an integer from the console
+
+    putn(num)				: prints an integer to the console
+
+    puts("...")				: prints a string (literal strings only)
+
+####Other				: description
+
+    exit()				: immediately terminates the program
+
+    Functions are checked for the correct number of arguments (0 or 1)
+    
+    
+Current Version DOES NOT support the following:
+
+
+    Variable Types:
+    Double	: Variables that are of double type
+     
+    Other:
+    All functions return a value.
+
+    Functions with multiple arguments are not parsed correctly.
+
+--------------------------------------------------------------------------------
+
+ Files:
+
+--------------------------------------------------------------------------------
+  * Makefile.codegen
+
+      * The Makefile for `compiler2017`
+
+  * zp.cf
+
+      * Grammar of the zp language used by `bnfc`
+
+  * Absyn.C/H
+
+      * Abstract syntax tree files generated by `bnfc`
+
+  * zp.l/y
+
+      * Flex and Bison files generated by bnfc
+
+  * codegen.cc/h
+
+      * Defines the p-code generation class
+
+  * Lexer.C/H
+
+      * Lexer files generated by `bnfc`
+
+  * Parser.C/H
+
+      * Parser files generated by `bnfc`
+
+  * Parser.C/H
+
+      * Printer files generated by `bnfc`
+
+  * pstcode.cc/h
+
+      * Implements prolog functions such as `getnum()`` and other functions
+
+  * Skeleton.C/H
+
+      * Skeleton files generated by `bnfc`
+
+  * symbtable.cc/h
+
+      * Defines the Symbol and SymbolTable classes
+
+  * typescript
+
+      * Script of the tests being run
+
+  * myTests
+
+      * Directory containing the tests
+
+  * pstack
+
+      * Directory containing the pstack supplied by the Dr. Jaromcyzk
+
+-------------------------------------------------------------------------------
+
+Project status:
+
+-------------------------------------------------------------------------------
+#### Milestone features:
+  * if and if-else: **Complete**
+
+  * for2-loop: **Complete**
+
+  * for3-loop: **Complete**
+
+  * Optimization: **Complete**
+
+  * Globals: **Incomplete**
+
+  * repeat-until-loop: **Complete**
+
+  * Scoped for-loop: *In-Progress*
+
+  * Argument count checking: **Complete**
+
+  * Type checking: *Incomplete*
+
+  * Doubles: *Incomplete*
+
+#### Additional features:
+
+  * Added additional operators: &&, ||, /, %, ==, >, >=, <=, !
+
+### Developers' notes:
+
+Had to make additions to apm.h, api.c & apmname.h so that
+the Greater-Than-Equal-To & Less-Than-Equal-To operators
+would work.
+
+### Known bugs:
+
+  * Scoped for loops will not use any variables declared outside of its scope
+  * Globals that have been assigned a value will override argument values
+
+-------------------------------------------------------------------------------

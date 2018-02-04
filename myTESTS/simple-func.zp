@@ -1,0 +1,19 @@
+//simple.zp 
+//Input: None
+//Output: 2017 
+
+int print(int n)
+{
+     if (n < 10){
+         putn(n);
+     }
+     return(10);
+}
+int main ()
+{
+     int x;
+     x = 9;
+     print(x);
+     
+     return(0);
+}

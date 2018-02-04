@@ -1,0 +1,11 @@
+//simple.zp 
+//Input: None
+//Output: 2017 
+int main ()
+{
+    int sum = 2016;
+    int i = 1;
+    sum = sum + i;
+    putn (sum);
+    return 0;
+}

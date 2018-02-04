@@ -1,0 +1,20 @@
+//simple-ifelse.zp
+//Input: none
+//Output: 2015
+
+int main()
+{
+    int sum;
+    int i;
+    sum = 2016;
+    i = 1;
+    if (i < 0)
+    {
+        sum = sum + 1;
+    }
+    else{
+        sum = sum - 1;
+    }
+    putn(sum);
+    return 0;
+}

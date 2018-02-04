@@ -1,0 +1,17 @@
+//File: simple2_repeat.zp
+//Input: none
+//Output: 
+
+int main()
+{
+    int i;
+    int sum;
+    repeat{
+        sum = sum + i;
+        putn(sum);
+        i = i + 1;
+        putn(i);
+    }until(i >= 0);
+    putn(sum);
+    return 0;
+}

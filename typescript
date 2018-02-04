@@ -1,0 +1,200 @@
+Script started on Wed 13 Dec 2017 11:19:54 PM EST
+[4mviolet[24m:[1m~/CS441G/paf/WORKv2[0m> ./test-zp2pstack-modified.sh ./myTESTS/
+[1mRemember that if you've changed anything in the compiler
+code then you need to recompile!
+(B[m--> Executing adv_expressions...
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing adv-forscope...
+  --> [1m[31mFailure:(B[m
+  --> Diff results:
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing adv-globals...
+ --> Checking output...
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing argcountcheck-adv...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+  --> [1m[31mFailure:(B[m
+  --> Diff results:
+   [31m--- ./myTESTS//adv-globals.zp_expected.out	2017-12-13 21:44:14.224381905 -0500(B[m
+   [32m+++ zp2pstack.out	2017-12-13 23:20:02.611667475 -0500(B[m
+   @@ -1 +1,14 @@
+   [31m-(B[m
+   [32m+     0 (B[m
+   [32m+     2 (B[m
+   [32m+    21 (B[m
+   [32m+     0 (B[m
+   [32m+     1 (B[m
+   [32m+    21 (B[m
+   [32m+     0 (B[m
+   [32m+     2 (B[m
+   [32m+    21 (B[m
+   [32m+     0 (B[m
+   [32m+     1 (B[m
+   [32m+    21 (B[m
+   [32m+    20 (B[m
+   [32m+    20 (B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+   Code-generation error: Function "pow" requires 1 arguments. 0 arguments given.
+
+--> Executing argcountcheck-bas...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple1-if...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple2-ifelse...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple2-ifthenelse...
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple2-ifthen...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple2_repeat...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-defwdecl...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-forscope...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simplefor...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-func...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-globals...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-ifelse...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-ifthenelse...
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple-ifthen...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple_repeat...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> [33mCorrect but with compiler/error messages:(B[m
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Executing simple...
+ --> Checking for expected errors/messages...
+  --> [1m[32mSuccess!(B[m
+ --> Checking output...
+  --> Compiler/Error messages:
+   
+   Parse Successful!
+
+--> Removing temporary files...
+
+--> Testing has finished: [1m[32m15 good(B[m, [1m[31m2 bad(B[m, [33m14 questionable(B[m
+ --> Failed tests:[1m[31m adv-forscope argcountcheck-adv(B[m
+ --> Possibly failed tests:[33m adv_expressions argcountcheck-bas simple2-ifelse simple2-ifthenelse simple2-ifthen simple2_repeat simple-defwdecl simple-forscope simple-func simple-globals simple-ifelse simple-ifthenelse simple-ifthen simple_repeat(B[m
+[4mviolet[24m:[1m~/CS441G/paf/WORKv2[0m> wq
+wq: Command not found.
+[4mviolet[24m:[1m~/CS441G/paf/WORKv2[0m> exit
+exit
+
+Script done on Wed 13 Dec 2017 11:21:01 PM EST

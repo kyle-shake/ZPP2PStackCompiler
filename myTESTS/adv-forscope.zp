@@ -1,0 +1,19 @@
+//  File: adv-forscope.zp
+//  For testing scoped for loop
+//  input: none
+//  expected output: 2015 2016 2017 2018 2019
+
+int main()
+{
+    int n = 2015;
+
+    for(int y = 0; y < 3; y = y + 1){
+        for(int z = 0; z < 2; z = z + 1){ 
+	    putn(n);
+            n = n + 1;
+        }
+    }
+
+    return 0;
+}
+

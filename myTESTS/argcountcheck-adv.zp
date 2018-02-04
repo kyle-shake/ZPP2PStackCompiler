@@ -1,0 +1,27 @@
+//simple.zp 
+//Input: None
+//Output: 2017 
+
+int pow(int x)
+{
+    int n;
+    n = 10;
+    while(n > 1){
+        x = x * 2;
+        n = n - 1;
+    }
+    
+    return(x);
+}
+
+int main ()
+{
+    int x;
+    int powerof;
+    int expo;
+    x = 2;
+    expo = pow();
+    putn (expo);
+
+    return(0);
+}

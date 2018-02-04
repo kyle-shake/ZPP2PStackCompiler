@@ -1,0 +1,15 @@
+//simple-globals.zp 
+//Input: None
+//Output: 2017 
+
+int i;
+
+int main ()
+{
+    int sum;
+    sum = 2016;
+    i = 1;
+    sum = sum + i;
+    putn (sum);
+    return 0;
+}
